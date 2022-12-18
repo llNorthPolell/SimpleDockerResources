@@ -20,7 +20,8 @@ services:
     container_name: logstash
     restart: always
     volumes:
-    - ./logstash/:/logstash_dir
+    - ./logstash/:/logstash_dir/
+    - ./temp/:/usr/share/logstash/data/plugins/inputs/file/
     command: logstash -f /logstash_dir/logstash.conf 
     depends_on:
       - Elasticsearch
